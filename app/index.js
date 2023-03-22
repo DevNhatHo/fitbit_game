@@ -21,15 +21,15 @@ read = fs.readFileSync("/private/data/json.txt", "cbor");
 } catch(e) {
 console.log('Oh snap we have an error: ', e);
 console.log("else statement init");
- let cJson = JSON.parse(0);
-  let lJson = JSON.parse(1);
-  let hJson = JSON.parse(100);
-  var lastDate = new Date().toJSON();
- // var steps = JSON.parse((today.adjusted.steps));
+let cJson = JSON.parse(0);
+let lJson = JSON.parse(1);
+let hJson = JSON.parse(100);
+var lastDate = new Date().toJSON();
+// var steps = JSON.parse((today.adjusted.steps));
   
   
     let json_data = {
-     "coins": cJson,
+      "coins": cJson,
       "health": hJson,
       "level": lJson,
       "lastDate": lastDate,
@@ -37,7 +37,7 @@ console.log("else statement init");
       }
 fs.writeFileSync('/private/data/json.txt', json_data, 'cbor'); 
   
-   let health = document.getElementById("health");
+  let health = document.getElementById("health");
   let level = document.getElementById("level");
   let coins = document.getElementById("coins");
   
@@ -74,7 +74,7 @@ function startGame(){
   getValues();
 
 // Update elements every tick with the current time
-clock.ontick = (evt) => {
+  clock.ontick = (evt) => {
   console.log("Clock ticked");
   
   let json_object = fs.readFileSync("/private/data/json.txt", "cbor");
@@ -100,14 +100,14 @@ clock.ontick = (evt) => {
   
   if (oldDate == thisDate){
     console.log("Got into func");
-      let amount = newValue - oldValue;
-      exp += amount;
-      console.log("exp: " + exp);
-      UpdateSteps(exp, newValue, thisDate);
-      let increase = levelNumber*5000;
-      console.log(">>>>> " + increase);
+    let amount = newValue - oldValue;
+    exp += amount;
+    console.log("exp: " + exp);
+    UpdateSteps(exp, newValue, thisDate);
+    let increase = levelNumber*5000;
+    console.log(">>>>> " + increase);
     
-      if (exp > increase){
+     if (exp > increase){
       levelNumber++;
       let key = "l";
       UpdateFile(key, levelNumber);
@@ -273,7 +273,7 @@ function Revive(){
   
   
 function getValues(){
-   let health = document.getElementById("health");
+  let health = document.getElementById("health");
   let level = document.getElementById("level");
   let coins = document.getElementById("coins");
   
